@@ -51,10 +51,26 @@ except wikipedia.DisambiguationError as e:                                   # i
 
 # Getting content from articles and manipulating for status
 page_url = complete_content.url
-character_limit = 210 - len(page_url)
+character_limit = 190 - len(page_url)
 page_content = complete_content.content[:character_limit]
 print(page_url, '\nurllen:', len(page_url), '\ncharlim:', character_limit,
     '\ncontent:', page_content, '....')                                         # sort of a debugger 🥱😎
 
 tweet = page_content + '...' + '\n' + page_url
 print(tweet)
+
+
+# Setting up tweet authentication
+auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+auth.set_access_token(ACCESS_KEY, ACCESS_SECRET)
+api = tweepy.API(auth, wait_on_rate_limit=True,
+    wait_on_rate_limit_notify=True)
+
+try:
+    api.verify_credentials()
+    print("Authentication OK")
+except:
+    print("Error during authentication")
+
+api.update_status(tweet)
+print('====Done====')
