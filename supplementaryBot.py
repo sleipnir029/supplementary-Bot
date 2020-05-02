@@ -6,10 +6,10 @@ import random
 
 
 # Keys for authentication
-CONSUMER_KEY = 'ItdSIzZCtPi2jxeuenxuHtEEp'
-CONSUMER_SECRET = 'dLS8xt8DSsuVfxSfOdZvrM86IxvasolYZ9wU8ZDD0BcuXU1Nyl'
-ACCESS_KEY = '1249506273831161856-MgdRnM0Q7PRQTtkZ6dwIurQJZTC1nl'
-ACCESS_SECRET = 'lhP9AjMrPM7GdrzQg8Dlj9YfFTaE6cwyYWFgClhruzh2R'
+CONSUMER_KEY = ''
+CONSUMER_SECRET = ''
+ACCESS_KEY = ''
+ACCESS_SECRET = ''
 
 
 # Retriving trends data from Google (global)
@@ -72,5 +72,5 @@ try:
 except:
     print("Error during authentication")
 
-api.update_status(tweet)
+#api.update_status(tweet)
 print('====Done====')
