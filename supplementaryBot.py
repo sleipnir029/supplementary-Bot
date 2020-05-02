@@ -72,5 +72,5 @@ try:
 except:
     print("Error during authentication")
 
-#api.update_status(tweet)
+api.update_status(tweet)
 print('====Done====')
