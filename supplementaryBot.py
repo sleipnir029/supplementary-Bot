@@ -46,3 +46,15 @@ except wikipedia.DisambiguationError as e:                                   # i
     complete_content = wikipedia.page(temp)
     print('Random choice after Disambiguation Error: ', temp)
     print(temp, ' <--page contains this--> ', complete_content.content[:50])
+
+
+
+# Getting content from articles and manipulating for status
+page_url = complete_content.url
+character_limit = 210 - len(page_url)
+page_content = complete_content.content[:character_limit]
+print(page_url, '\nurllen:', len(page_url), '\ncharlim:', character_limit,
+    '\ncontent:', page_content, '....')                                         # sort of a debugger 🥱😎
+
+tweet = page_content + '...' + '\n' + page_url
+print(tweet)
