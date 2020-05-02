@@ -34,3 +34,15 @@ retrived_titles_modified = sum(searched_titles, [])                         # Jo
 print(retrived_titles_modified)
 randomized_title = random.choice(retrived_titles_modified)
 print('Random title:', randomized_title)
+
+
+# Handling error on unsuccessful search results
+wikipedia.set_lang("en")
+try:
+    complete_content = wikipedia.page(randomized_title, pageid=None,
+                    auto_suggest=True, redirect=True, preload=False)
+except wikipedia.DisambiguationError as e:                                   # if it raises, returns a list of titles of Wikipedia pages that the query may refer to.
+    temp = random.choice(e.options)
+    complete_content = wikipedia.page(temp)
+    print('Random choice after Disambiguation Error: ', temp)
+    print(temp, ' <--page contains this--> ', complete_content.content[:50])
