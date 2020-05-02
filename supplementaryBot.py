@@ -6,10 +6,10 @@ import random
 
 
 # Keys for authentication
-CONSUMER_KEY = ''
-CONSUMER_SECRET = ''
-ACCESS_KEY = ''
-ACCESS_SECRET = ''
+CONSUMER_KEY = 'consumerKey'
+CONSUMER_SECRET = 'consumerSecret'
+ACCESS_KEY = 'accessKey'
+ACCESS_SECRET = 'accessSecret'
 
 
 # Retriving trends data from Google (global)
