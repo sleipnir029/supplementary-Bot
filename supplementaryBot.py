@@ -11,7 +11,6 @@ CONSUMER_SECRET = 'consumerSecret'
 ACCESS_KEY = 'accessKey'
 ACCESS_SECRET = 'accessSecret'
 
-
 # Retriving trends data from Google (global)
 pytrend = TrendReq()
 df = pytrend.trending_searches()                                            # Search for 
@@ -50,13 +49,14 @@ except wikipedia.DisambiguationError as e:                                   # i
 
 
 # Getting content from articles and manipulating for status
+hashtag = ''.join(i.lower() for i in randomized_title.split())
 page_url = complete_content.url
 character_limit = 190 - len(page_url)
 page_content = complete_content.content[:character_limit]
 print(page_url, '\nurllen:', len(page_url), '\ncharlim:', character_limit,
     '\ncontent:', page_content, '....')                                         # sort of a debugger 🥱😎
 
-tweet = page_content + '...' + '\n' + page_url
+tweet = page_content + '...' + ' ' + page_url + "\n" + "#" + hashtag
 print(tweet)
 
 
